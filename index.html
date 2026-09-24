@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-card: #0d1117;
-            --bg-code: #161b22;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --accent: #76B900;
-            --accent-dim: #76B90044;
-            --accent-glow: #76B90033;
-            --border: #21262d;
+            --bg-primary: #f2f1ee;
+            --bg-card: #eae8e4;
+            --bg-code: #e1dfd9;
+            --text-primary: #171717;
+            --text-secondary: #615f59;
+            --accent: #36774d;
+            --accent-dim: #36774d44;
+            --accent-glow: #36774d1a;
+            --border: #d1cfc7;
             --font-display: 'Space Grotesk', sans-serif;
             --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
             --font-body: 'Inter', sans-serif;
@@ -165,7 +165,7 @@
             border: 1px solid var(--border);
             padding: 0.05rem 0.35rem;
             border-radius: 3px;
-            color: #c9d1d9;
+            color: #2d2d2a;
         }
         .code-block {
             background: var(--bg-code);
@@ -178,7 +178,7 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             color: var(--accent);
-            background: rgba(118, 185, 0, 0.08);
+            background: rgba(54,119,77,0.08);
             padding: 0.4rem 1rem;
             border-bottom: 1px solid var(--border);
         }
@@ -187,19 +187,19 @@
             font-family: var(--font-mono);
             font-size: 0.85rem;
             line-height: 1.6;
-            color: #c9d1d9;
+            color: #2d2d2a;
             background: transparent;
             border: none;
             padding: 0;
         }
-        .kw { color: #ff7b72; }
-        .fn { color: #d2a8ff; }
-        .str { color: #a5d6ff; }
-        .cm { color: #8b949e; font-style: italic; }
-        .num { color: #79c0ff; }
-        .type { color: #ffa657; }
-        .dir { color: #ff7b72; }
-        .mac { color: #ffa657; }
+        .kw { color: #9d1128; }
+        .fn { color: #422750; }
+        .str { color: #172539; }
+        .cm { color: #615f59; font-style: italic; }
+        .num { color: #173055; }
+        .type { color: #95621f; }
+        .dir { color: #9d1128; }
+        .mac { color: #95621f; }
         .table-wrap {
             overflow-x: auto;
             margin: 1.25rem 0;
@@ -223,7 +223,7 @@
             color: var(--text-secondary);
         }
         tr:last-child td { border-bottom: none; }
-        tr:nth-child(even) td { background: rgba(13, 17, 23, 0.5); }
+        tr:nth-child(even) td { background: rgba(234,232,228,0.5); }
         .diagram-flow {
             display: flex;
             flex-wrap: wrap;
@@ -247,7 +247,7 @@
             text-align: center;
             white-space: nowrap;
         }
-        .diagram-box.accent { border-color: var(--accent); color: var(--accent); background: rgba(118, 185, 0, 0.08); }
+        .diagram-box.accent { border-color: var(--accent); color: var(--accent); background: rgba(54,119,77,0.08); }
         .diagram-box.dim { color: var(--text-secondary); border-color: var(--border); }
         .diagram-arrow { color: var(--accent); font-size: 1.3rem; font-weight: 700; }
         .diagram-vertical {
@@ -290,7 +290,7 @@
             border: 1px solid var(--border);
             color: var(--text-secondary);
         }
-        .hierarchy-item.accent { border-color: var(--accent); color: var(--accent); background: rgba(118, 185, 0, 0.08); }
+        .hierarchy-item.accent { border-color: var(--accent); color: var(--accent); background: rgba(54,119,77,0.08); }
         .diagram-grid {
             display: grid;
             gap: 0.75rem;
@@ -384,8 +384,8 @@
             margin-left: 0.3rem;
         }
         .badge.ok    { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-        .badge.warn  { border-color: #ffa657; color: #ffa657; background: rgba(255,166,87,0.08); }
-        .badge.bad   { border-color: #ff7b72; color: #ff7b72; background: rgba(255,123,114,0.08); }
+        .badge.warn  { border-color: #95621f; color: #95621f; background: rgba(149,98,31,0.08); }
+        .badge.bad   { border-color: #9d1128; color: #9d1128; background: rgba(157,17,40,0.08); }
         @media (max-width: 640px) {
             .slide { padding: 3rem 1rem; min-height: auto; }
             .slide-number { font-size: 3rem; top: 1.5rem; right: 1rem; }
@@ -452,23 +452,23 @@
     <div class="canvas-wrap">
         <svg viewBox="0 0 720 210" width="720" height="210" xmlns="http://www.w3.org/2000/svg">
             <style>
-                .gc-box { fill: #161b22; stroke: #21262d; stroke-width: 1; }
-                .gc-acc { fill: rgba(118,185,0,0.08); stroke: #76B900; stroke-width: 1; }
-                .gc-bad { fill: rgba(255,123,114,0.08); stroke: #ff7b72; stroke-width: 1; }
-                .gc-lbl { fill: #e6edf3; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-anchor: middle; }
-                .gc-sub { fill: #8b949e; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-anchor: middle; }
-                .gc-badlbl { fill: #ff7b72; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-anchor: middle; }
-                .gc-ttl { fill: #76B900; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; }
-                .gc-arr { stroke: #76B900; stroke-width: 1.5; fill: none; marker-end: url(#gah); }
+                .gc-box { fill: #e1dfd9; stroke: #d1cfc7; stroke-width: 1; }
+                .gc-acc { fill: rgba(54,119,77,0.08); stroke: #36774d; stroke-width: 1; }
+                .gc-bad { fill: rgba(157,17,40,0.08); stroke: #9d1128; stroke-width: 1; }
+                .gc-lbl { fill: #171717; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-anchor: middle; }
+                .gc-sub { fill: #615f59; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-anchor: middle; }
+                .gc-badlbl { fill: #9d1128; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-anchor: middle; }
+                .gc-ttl { fill: #36774d; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; }
+                .gc-arr { stroke: #36774d; stroke-width: 1.5; fill: none; marker-end: url(#gah); }
             </style>
-            <defs><marker id="gah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#76B900"/></marker></defs>
+            <defs><marker id="gah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#36774d"/></marker></defs>
             <text x="10" y="18" class="gc-ttl">Adversarial suffix bypasses the refusal</text>
             <rect x="20"  y="50" width="180" height="40" class="gc-box" rx="6"/><text x="110" y="68" class="gc-lbl">Harmful request</text><text x="110" y="83" class="gc-sub">"how do I build a ..."</text>
             <rect x="20"  y="120" width="180" height="40" class="gc-bad" rx="6"/><text x="110" y="138" class="gc-badlbl">+ adversarial suffix</text><text x="110" y="153" class="gc-sub">describing.\ + similarly...</text>
             <path d="M205 90 C 250 110, 250 120, 295 125" class="gc-arr"/>
             <rect x="300" y="90" width="140" height="40" class="gc-box" rx="6"/><text x="370" y="108" class="gc-lbl">Aligned LLM</text><text x="370" y="123" class="gc-sub">refusal trained in</text>
             <path d="M445 110 L 525 110" class="gc-arr"/>
-            <rect x="530" y="55" width="170" height="40" class="gc-acc" rx="6"/><text x="615" y="73" class="gc-lbl" style="fill:#76B900;">Forced prefix</text><text x="615" y="88" class="gc-sub">"Sure, here is..."</text>
+            <rect x="530" y="55" width="170" height="40" class="gc-acc" rx="6"/><text x="615" y="73" class="gc-lbl" style="fill:#36774d;">Forced prefix</text><text x="615" y="88" class="gc-sub">"Sure, here is..."</text>
             <rect x="530" y="120" width="170" height="40" class="gc-bad" rx="6"/><text x="615" y="138" class="gc-badlbl">Harmful completion</text><text x="615" y="153" class="gc-sub">refusal bypassed</text>
             <path d="M615 95 L 615 120" class="gc-arr"/>
         </svg>
@@ -504,7 +504,7 @@
         <div class="diagram-arrow">&rarr;</div>
         <div class="diagram-box dim">User request<br><small>trusted</small></div>
         <div class="diagram-arrow">+</div>
-        <div class="diagram-box" style="border-color:#ff7b72;color:#ff7b72;background:rgba(255,123,114,0.08);">Retrieved page<br><small>UNTRUSTED &mdash; injected</small></div>
+        <div class="diagram-box" style="border-color:#9d1128;color:#9d1128;background:rgba(157,17,40,0.08);">Retrieved page<br><small>UNTRUSTED &mdash; injected</small></div>
         <div class="diagram-arrow">&rarr;</div>
         <div class="diagram-box">One context window<br><small>no trust boundary</small></div>
     </div>
@@ -574,7 +574,7 @@
         <div class="diagram-arrow">&rarr;</div>
         <div class="diagram-box accent">Looks safe<br><small>passes evals</small></div>
         <div class="diagram-arrow">&rarr;</div>
-        <div class="diagram-box" style="border-color:#ff7b72;color:#ff7b72;background:rgba(255,123,114,0.08);">Trigger fires<br><small>defects in prod</small></div>
+        <div class="diagram-box" style="border-color:#9d1128;color:#9d1128;background:rgba(157,17,40,0.08);">Trigger fires<br><small>defects in prod</small></div>
     </div>
     <h3>Why it matters to a practising engineer</h3>
     <ul>
@@ -603,7 +603,7 @@
         <div class="diagram-arrow">&rarr;</div>
         <div class="diagram-box accent">Generalises<br><small>beyond teacher's labels</small></div>
         <div class="diagram-arrow">&rarr;</div>
-        <div class="diagram-box" style="border-color:#ffa657;color:#ffa657;background:rgba(255,166,87,0.08);">Gap to full supervision<br><small>partly recovered</small></div>
+        <div class="diagram-box" style="border-color:#95621f;color:#95621f;background:rgba(149,98,31,0.08);">Gap to full supervision<br><small>partly recovered</small></div>
     </div>
     <h3>Why it matters to a practising engineer</h3>
     <ul>
